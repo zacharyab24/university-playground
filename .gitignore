@@ -1,0 +1,55 @@
+# ===== Build outputs =====
+
+target/
+build/
+out/
+
+# ===== Maven =====
+
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# ===== Logs =====
+
+*.log
+
+# ===== OS files =====
+
+.DS_Store
+Thumbs.db
+
+# ===== IDE: IntelliJ =====
+
+.idea/
+*.iml
+
+# ===== IDE: VS Code =====
+
+.vscode/
+
+# ===== Eclipse =====
+
+.project
+.classpath
+.settings/
+
+# ===== NetBeans =====
+
+nbproject/private/
+dist/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# ===== Environment / secrets =====
+
+.env
+.env.*
+*.key
+*.pem
+
+# ===== Misc =====
+
+*.swp
+*.swo
+*~
