@@ -33,6 +33,14 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!-- RESTEasy (provided by Wildfly 34) -->
+            <dependency>
+                <groupId>org.jboss.resteasy</groupId>
+                <artifactId>resteasy-multipart-provider</artifactId>
+                <version>6.2.11.Final</version>
+                <scope>provided</scope>
+            </dependency>
+
             <!-- Assignment modules -->
             <dependency>
                 <groupId>com.zacharyab24</groupId>
