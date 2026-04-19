@@ -160,6 +160,123 @@
       ]
     },
     {
+      "name": "Algorithms",
+      "item": [
+        {
+          "name": "Maze",
+          "item": [
+            {
+              "name": "Generate Maze",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"rows\":10,\n    \"cols\":10\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/maze/generate",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "maze",
+                    "generate"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Verify Maze",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"maze\": {\n        \"rows\": 10,\n        \"cols\": 10,\n        \"start\": 68,\n        \"finish\": 50,\n        \"connectivity\": [\n            3,\n            1,\n            2,\n            2,\n            3,\n            3,\n            1,\n            1,\n            2,\n            2,\n            3,\n            2,\n            2,\n            1,\n            0,\n            2,\n            2,\n            3,\n            0,\n            2,\n            2,\n            2,\n            2,\n            3,\n            2,\n            2,\n            1,\n            1,\n            1,\n            2,\n            0,\n            2,\n            3,\n            0,\n            1,\n            0,\n            3,\n            2,\n            3,\n            0,\n            3,\n            0,\n            0,\n            3,\n            1,\n            1,\n            0,\n            2,\n            1,\n            0,\n            2,\n            3,\n            1,\n            0,\n            3,\n            1,\n            2,\n            1,\n            1,\n            2,\n            3,\n            0,\n            3,\n            1,\n            0,\n            2,\n            2,\n            2,\n            3,\n            0,\n            1,\n            1,\n            0,\n            2,\n            3,\n            1,\n            0,\n            1,\n            0,\n            2,\n            3,\n            1,\n            2,\n            3,\n            0,\n            3,\n            2,\n            3,\n            1,\n            2,\n            1,\n            0,\n            1,\n            1,\n            1,\n            0,\n            1,\n            0,\n            1,\n            0\n        ]\n    },\n    \"solutions\": [\n        {\n            \"stepCount\": 52,\n            \"nodeIndices\": [\n                68,\n                78,\n                79,\n                69,\n                70,\n                60,\n                59,\n                58,\n                48,\n                38,\n                37,\n                47,\n                46,\n                45,\n                44,\n                54,\n                53,\n                52,\n                62,\n                61,\n                51,\n                41,\n                42,\n                32,\n                22,\n                12,\n                11,\n                1,\n                2,\n                3,\n                13,\n                23,\n                33,\n                34,\n                24,\n                25,\n                35,\n                36,\n                26,\n                16,\n                6,\n                7,\n                8,\n                9,\n                19,\n                18,\n                28,\n                29,\n                30,\n                40,\n                39,\n                49,\n                50\n            ]\n        }\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/maze/verify",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "maze",
+                    "verify"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Solve Maze",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"rows\": 10,\n    \"cols\": 10,\n    \"start\": 68,\n    \"finish\": 50,\n    \"connectivity\": [\n        3,\n        1,\n        2,\n        2,\n        3,\n        3,\n        1,\n        1,\n        2,\n        2,\n        3,\n        2,\n        2,\n        1,\n        0,\n        2,\n        2,\n        3,\n        0,\n        2,\n        2,\n        2,\n        2,\n        3,\n        2,\n        2,\n        1,\n        1,\n        1,\n        2,\n        0,\n        2,\n        3,\n        0,\n        1,\n        0,\n        3,\n        2,\n        3,\n        0,\n        3,\n        0,\n        0,\n        3,\n        1,\n        1,\n        0,\n        2,\n        1,\n        0,\n        2,\n        3,\n        1,\n        0,\n        3,\n        1,\n        2,\n        1,\n        1,\n        2,\n        3,\n        0,\n        3,\n        1,\n        0,\n        2,\n        2,\n        2,\n        3,\n        0,\n        1,\n        1,\n        0,\n        2,\n        3,\n        1,\n        0,\n        1,\n        0,\n        2,\n        3,\n        1,\n        2,\n        3,\n        0,\n        3,\n        2,\n        3,\n        1,\n        2,\n        1,\n        0,\n        1,\n        1,\n        1,\n        0,\n        1,\n        0,\n        1,\n        0\n    ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{host}}/maze/solve",
+                  "host": [
+                    "{{host}}"
+                  ],
+                  "path": [
+                    "maze",
+                    "solve"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Travelling Salesman Problem",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"algorithm\": \"hillclimb\",\n  \"coordinates\": [\n    {\n      \"x\": 145,\n      \"y\": 215\n    },\n    {\n      \"x\": 151,\n      \"y\": 264\n    },\n    {\n      \"x\": 159,\n      \"y\": 261\n    },\n    {\n      \"x\": 130,\n      \"y\": 254\n    },\n    {\n      \"x\": 128,\n      \"y\": 252\n    }\n    ],\n    \"iterations\": 1000000,\n    \"maxAttempts\": 100\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/tsp",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "tsp"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Get OpenAPI Schema",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
