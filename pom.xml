@@ -22,6 +22,7 @@
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jakartaee.version>10.0.0</jakartaee.version>
+        <swagger.version>2.2.48</swagger.version>
     </properties>
 
     <dependencyManagement>
@@ -41,6 +42,18 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!-- Swagger Core (OpenAPI 3) -->
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-jaxrs2-jakarta</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations-jakarta</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
             <!-- Assignment modules -->
             <dependency>
                 <groupId>com.zacharyab24</groupId>
@@ -50,7 +63,7 @@
             <dependency>
                 <groupId>com.zacharyab24</groupId>
                 <artifactId>comp2240</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </dependency>
             <dependency>
                 <groupId>com.zacharyab24</groupId>

@@ -39,6 +39,12 @@
             <groupId>com.zacharyab24</groupId>
             <artifactId>seng2250</artifactId>
         </dependency>
+
+        <!-- OpenAPI annotations only (no runtime Swagger dep) -->
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations-jakarta</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
