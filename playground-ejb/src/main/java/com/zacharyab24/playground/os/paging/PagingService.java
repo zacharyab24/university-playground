@@ -31,7 +31,7 @@ public class PagingService {
      * @param dtos the request DTOs
      * @return a new list of SimProcess instances
      */
-    private static ArrayList<SimProcess> toSimProcesses(List<SimProcessRequest> dtos) {
+    static ArrayList<SimProcess> toSimProcesses(List<SimProcessRequest> dtos) {
         return dtos.stream()
                 .map(SimProcessRequest::toSimProcess)
                 .collect(Collectors.toCollection(ArrayList::new));
