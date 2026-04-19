@@ -363,6 +363,309 @@
       ]
     },
     {
+      "name": "Network Security",
+      "item": [
+        {
+          "name": "CBC Decrypt",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ciphertext\": \"string\",\n  \"key\": \"string\",\n  \"iv\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/cbc/decrypt",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "cbc",
+                "decrypt"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CBC Encrypt",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plaintext\": \"Hello, World!\",\n  \"key\": \"string\",\n  \"iv\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/cbc/decrypt",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "cbc",
+                "decrypt"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "CBC Generate Key",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keySize\": 256\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/cbc/generate-key",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "cbc",
+                "generate-key"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DH Generate",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{host}}/crypto/dh/generate",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "dh",
+                "generate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DH Session",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"remotePublicKey\": \"string\",\n  \"localPrivateKey\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/dh/session",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "dh",
+                "session"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "HMAC",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"mysecretkey\",\n  \"message\": \"Hello, World!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/hmac",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "hmac"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RSA Decrypt",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ciphertext\": \"987654321...\",\n  \"privateKey\": {\n    \"prime1\": \"string\",\n    \"prime2\": \"string\",\n    \"exponent\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/rsa/decrypt",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "rsa",
+                "decrypt"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RSA Encrypt",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plaintext\": \"Hello, World!\",\n  \"publicKey\": {\n    \"modulus\": \"123456789...\",\n    \"exponent\": \"65537\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/rsa/encrypt",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "rsa",
+                "encrypt"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RSA Sign",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"Hello, World!\",\n  \"privateKey\": {\n    \"prime1\": \"string\",\n    \"prime2\": \"string\",\n    \"exponent\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/rsa/sign",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "rsa",
+                "sign"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RSA Sign Copy",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"Hello, World!\",\n  \"signature\": \"string\",\n  \"publicKey\": {\n    \"modulus\": \"123456789...\",\n    \"exponent\": \"65537\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/rsa/verify",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "rsa",
+                "verify"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RSA Generate",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/crypto/rsa/generate",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "crypto",
+                "rsa",
+                "generate"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Get OpenAPI Schema",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
