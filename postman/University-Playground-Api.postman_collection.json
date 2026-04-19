@@ -1,0 +1,225 @@
+{
+  "info": {
+    "_postman_id": "268f5f6e-07b7-4748-8688-c46cb81e550c",
+    "name": "University-Playground-Api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "10061150"
+  },
+  "item": [
+    {
+      "name": "OS",
+      "item": [
+        {
+          "name": "Run Scheduler",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"dispatcher\" : 1,\n    \"processes\" : [\n        {\n            \"processorID\": \"p1\",\n            \"arrivalTime\": 0,\n            \"serviceTime\": 10,\n            \"priority\": 0 \n        }, {\n            \"processorID\": \"p2\",\n            \"arrivalTime\": 0,\n            \"serviceTime\": 1,\n            \"priority\": 2 \n        }, {\n            \"processorID\": \"p3\",\n            \"arrivalTime\": 2,\n            \"serviceTime\": 4,\n            \"priority\": 0\n        }, {\n            \"processorID\": \"p4\",\n            \"arrivalTime\": 0,\n            \"serviceTime\": 1,\n            \"priority\": 1 \n        }, {\n            \"processorID\": \"p5\",\n            \"arrivalTime\": 0,\n            \"serviceTime\": 5,\n            \"priority\": 5 \n        }\n    ] \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/scheduler",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "scheduler"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Run Wormhole Simulation",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"earthHumans\": 2,\n  \"proximaAliens\": 2,\n  \"trips\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/multithreading/wormhole",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "multithreading",
+                "wormhole"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Run Semaphore Simulation",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tasks\": [\n    {\n      \"name\": \"tasks1\",\n      \"numProcesses\": 2,\n      \"inputs\": [\n        5,\n        3,\n        8\n      ]\n    }, {\n      \"name\": \"tasks2\",\n      \"numProcesses\": 3,\n      \"inputs\": [\n        5,\n        6,\n        7,\n        8\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/multithreading/semaphore",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "multithreading",
+                "semaphore"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Run Monitor Simulation",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tasks\": [\n    {\n      \"name\": \"tasks1\",\n      \"numProcesses\": 2,\n      \"inputs\": [\n        5,\n        3,\n        8\n      ]\n    }, {\n      \"name\": \"tasks2\",\n      \"numProcesses\": 3,\n      \"inputs\": [\n        5,\n        6,\n        7,\n        8\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/multithreading/monitor",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "multithreading",
+                "monitor"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Run Paging Simulation",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"totalFrames\": 30,\n    \"quantum\": 3,\n    \"processes\": [                      \n        {\"pid\": 1, \"name\": \"Process1\", \"pages\": [1, 2, 3, 1, 4]},\n        {\"pid\": 2, \"name\": \"Process2\", \"pages\": [2, 3, 4, 2, 1]}\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/paging",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "paging"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Get OpenAPI Schema",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{host}}/openapi.json",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "openapi.json"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "host",
+      "value": ""
+    }
+  ]
+}

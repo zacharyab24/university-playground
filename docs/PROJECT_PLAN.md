@@ -4,13 +4,13 @@
 
 ### Per Project (SENG1120, COMP2240, COMP2230, SENG2250)
 
-* [ ] Create `pom.xml`
-* [ ] Move code to `src/main/java/...`
-* [ ] Define proper package structure (`com.zacharyab24.<module>`)
-* [ ] Ensure project compiles with `mvn clean install`
+* [x] Create `pom.xml`
+* [x] Move code to `src/main/java/...`
+* [x] Define proper package structure (`com.zacharyab24.<module>`)
+* [x] Ensure project compiles with `mvn clean install`
 * [ ] (Optional) Add basic unit tests
-* [ ] Remove any CLI / main-method coupling if needed
-* [ ] Identify clean entry points for functionality
+* [x] Remove any CLI / main-method coupling if needed
+* [x] Identify clean entry points for functionality
 
 **Outcome:** Each project builds as a clean JAR.
 
@@ -18,17 +18,15 @@
 
 ## Phase 2: Nexus Setup
 
-* [ ] Run Nexus via Docker
-* [ ] Log in and change default credentials
-* [ ] Create repositories:
-
+* [x] Run Nexus via Docker
+* [x] Log in and change default credentials
+* [x] Create repositories:
     * `maven-releases`
     * `maven-snapshots`
-* [ ] Configure each project’s `pom.xml`:
-
+* [x] Configure each project's `pom.xml`:
     * `distributionManagement`
-* [ ] Run `mvn deploy` for each module
-* [ ] Verify artifacts exist in Nexus UI
+* [x] Run `mvn deploy` for each module
+* [x] Verify artifacts exist in Nexus UI
 
 **Outcome:** All modules are privately hosted and retrievable.
 
@@ -38,58 +36,54 @@
 
 ### Setup
 
-* [ ] Create new Maven project (`playground-server`)
-* [ ] Set packaging to `war`
-* [ ] Add dependencies to all modules
-* [ ] Add Nexus repository to `pom.xml`
+* [x] Create Maven multi-module project (parent + EJB + WAR + EAR)
+* [x] Add dependencies to assignment modules via Nexus
+* [x] Configure OpenAPI / Swagger annotations
 
----
+### Endpoints - Operating Systems (COMP2240)
 
-### JAX-RS Configuration
+* [x] Scheduling - FCFS, SPN, PP, PRR (`POST /api/scheduler`)
+* [x] Concurrency - Semaphore simulation (`POST /api/multithreading/semaphore`)
+* [x] Concurrency - Monitor simulation (`POST /api/multithreading/monitor`)
+* [x] Concurrency - Wormhole simulation (`POST /api/multithreading/wormhole`)
+* [ ] Paging - page replacement algorithms (`POST /api/paging`)
 
-* [ ] Create `Application` class
-* [ ] Configure base path `/api`
-
----
-
-### Controllers (Facade Layer)
-
-#### Data Structures
+### Endpoints - Data Structures (SENG1120)
 
 * [ ] LinkedList endpoints
 * [ ] Stack endpoints
 * [ ] BSTree endpoints
 
-#### Algorithms
+### Endpoints - Algorithms (COMP2230)
 
-* [ ] Scheduling endpoints (COMP2240)
-* [ ] TSP / pathfinding endpoints (COMP2230)
+* [ ] TSP / pathfinding endpoints
 
-#### Networking
+### Endpoints - Networking (SENG2250)
 
-* [ ] Security / handshake endpoints (SENG2250)
-
----
-
-### Design Rules
-
-* Do NOT expose raw internal classes directly
-* Use request/response DTOs
-* Keep endpoints focused on “what it does”, not “how it works”
+* [ ] Security / handshake endpoints
 
 ---
 
 ## Phase 4: Docker Deployment
 
 * [ ] Create Dockerfile (Wildfly base image)
-* [ ] Copy WAR into deployments directory
+* [ ] Copy EAR into deployments directory
 * [ ] Build Docker image
 * [ ] Run container locally
 * [ ] Verify endpoints via curl/Postman
 
 ---
 
-## Phase 5: Validation
+## Phase 5: Frontend (Go + HTMX)
+
+* [ ] Create separate repository for Go frontend
+* [ ] Set up Go module with HTMX templating
+* [ ] Implement pages consuming the REST API
+* [ ] Add visualisations (scheduling, concurrency, paging)
+
+---
+
+## Phase 6: Validation
 
 * [ ] Test each endpoint manually
 * [ ] Validate error handling
@@ -98,9 +92,7 @@
 
 ---
 
-## Stretch Goals (Later)
+## Stretch Goals
 
-* [ ] Add frontend playground UI
-* [ ] Add visualisations (TSP, scheduling)
 * [ ] Add authentication layer
 * [ ] Add CI/CD pipelines

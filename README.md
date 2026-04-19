@@ -11,7 +11,16 @@ The goal is to take standalone academic code and treat it like production system
 * Consumed by a unified API layer (Java EE + JAX-RS)
 * Deployed via Docker + Wildfly
 
-This project is intentionally backend-only. No database or frontend is included at this stage.
+---
+
+## Project Structure
+
+```
+playground-parent (pom)
+├── playground-ejb          Service layer (business logic, DTOs)
+├── playground-war          REST endpoints (JAX-RS resources, OpenAPI)
+└── playground-ear          Packages EJB + WAR for Wildfly deployment
+```
 
 ---
 
@@ -21,10 +30,10 @@ This project is intentionally backend-only. No database or frontend is included 
 
 Each assignment is refactored into a standalone Maven project:
 
-* `seng1120-datastructures`
-* `comp2240-algorithms`
-* `comp2230-algorithms`
-* `seng2250-networking`
+* `seng1120` - Data structures (linked list, stack, BSTree)
+* `comp2240` - OS algorithms (scheduling, concurrency, paging)
+* `comp2230` - Graph algorithms (TSP, pathfinding)
+* `seng2250` - Networking / security (handshake protocols)
 
 Each module:
 
@@ -36,7 +45,7 @@ Each module:
 
 ### 2. Artifact Repository (Nexus)
 
-A self-hosted Nexus instance is used to:
+A self-hosted Nexus instance at `nexus.zacbower.com` is used to:
 
 * Store private Maven artifacts
 * Avoid exposing university work publicly
@@ -46,20 +55,36 @@ A self-hosted Nexus instance is used to:
 
 ### 3. Playground Server
 
-A Java EE (JAX-RS) application that:
+A Java EE (Jakarta EE 10) application that:
 
 * Depends on all assignment modules
 * Exposes their functionality via REST endpoints
 * Acts as a facade over heterogeneous code
+* Documents APIs via OpenAPI 3 / Swagger annotations
 
 ---
 
 ### 4. Deployment
 
-* Packaged as a WAR
-* Deployed to Wildfly
+* Packaged as an EAR (EJB + WAR)
+* Deployed to Wildfly 34
 * Containerised using Docker
 * Runs on self-hosted infrastructure
+
+---
+
+## Current API Endpoints
+
+### Operating Systems (COMP2240)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | `/api/scheduler` | Run FCFS, SPN, PP, and PRR scheduling algorithms |
+| POST | `/api/multithreading/semaphore` | Run semaphore-based concurrency simulation |
+| POST | `/api/multithreading/monitor` | Run monitor-based (synchronized) concurrency simulation |
+| POST | `/api/multithreading/wormhole` | Run wormhole traveller simulation |
+
+Paging and data structure endpoints are in progress.
 
 ---
 
