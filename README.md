@@ -10,6 +10,8 @@ The goal is to take standalone academic code and treat it like production system
 * Published to a private artifact repository (Nexus)
 * Consumed by a unified API layer (Java EE + JAX-RS)
 * Deployed via Docker + Wildfly
+* Documented with OpenAPI 3 (Swagger)
+* Tested with JUnit 5, AssertJ, and RESTAssured
 
 ---
 
@@ -30,10 +32,11 @@ playground-parent (pom)
 
 Each assignment is refactored into a standalone Maven project:
 
-* `seng1120` - Data structures (linked list, stack, BSTree)
+* `seng1120` - Data structures (linked list, BSTree, hash table)
 * `comp2240` - OS algorithms (scheduling, concurrency, paging)
-* `comp2230` - Graph algorithms (TSP, pathfinding)
-* `seng2250` - Networking / security (handshake protocols)
+* `comp2230` - Graph algorithms (TSP, maze solving)
+* `seng2250` - Network security (RSA, DH, AES-CBC, HMAC)
+* More to come in future
 
 Each module:
 
@@ -61,6 +64,7 @@ A Java EE (Jakarta EE 10) application that:
 * Exposes their functionality via REST endpoints
 * Acts as a facade over heterogeneous code
 * Documents APIs via OpenAPI 3 / Swagger annotations
+* Serves the OpenAPI spec at `GET /api/`
 
 ---
 
@@ -70,10 +74,17 @@ A Java EE (Jakarta EE 10) application that:
 * Deployed to Wildfly 34
 * Containerised using Docker
 * Runs on self-hosted infrastructure
+* CI via GitHub Actions
 
 ---
 
-## Current API Endpoints
+## API Endpoints
+
+### OpenAPI Spec
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/api/` | OpenAPI 3 JSON specification |
 
 ### Operating Systems (COMP2240)
 
@@ -83,8 +94,40 @@ A Java EE (Jakarta EE 10) application that:
 | POST | `/api/multithreading/semaphore` | Run semaphore-based concurrency simulation |
 | POST | `/api/multithreading/monitor` | Run monitor-based (synchronized) concurrency simulation |
 | POST | `/api/multithreading/wormhole` | Run wormhole traveller simulation |
+| POST | `/api/paging` | Run Fixed-Local and Variable-Global paging simulations |
 
-Paging and data structure endpoints are in progress.
+### Algorithms (COMP2230)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | `/api/tsp` | Solve TSP with Dynamic Programming or Hill Climbing |
+| POST | `/api/maze/generate` | Generate a random maze using DFS |
+| POST | `/api/maze/solve` | Solve a maze with BFS and DFS |
+| POST | `/api/maze/verify` | Verify maze structure and solution paths |
+
+### Data Structures (SENG1120)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | `/api/tolls/report` | Merge toll booth records and generate daily report |
+| POST | `/api/inventory/stats` | Calculate inventory statistics using BSTree or HTable |
+| POST | `/api/inventory/benchmark` | Benchmark add/remove cycles on BSTree or HTable |
+
+### Network Security (SENG2250)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | `/api/crypto/rsa/generate` | Generate RSA key pair |
+| POST | `/api/crypto/rsa/encrypt` | Encrypt with RSA public key |
+| POST | `/api/crypto/rsa/decrypt` | Decrypt with RSA private key |
+| POST | `/api/crypto/rsa/sign` | Sign a message with RSA |
+| POST | `/api/crypto/rsa/verify` | Verify an RSA signature |
+| POST | `/api/crypto/dh/generate` | Generate Diffie-Hellman key pair |
+| POST | `/api/crypto/dh/session` | Derive shared session key |
+| POST | `/api/crypto/cbc/generate-key` | Generate AES key and IV |
+| POST | `/api/crypto/cbc/encrypt` | Encrypt with AES-CBC |
+| POST | `/api/crypto/cbc/decrypt` | Decrypt with AES-CBC |
+| POST | `/api/crypto/hmac` | Compute HMAC-SHA256 |
 
 ---
 
