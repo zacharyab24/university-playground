@@ -28,21 +28,31 @@ public class InventoryService {
      */
     public static InventoryStatsResponse getStats(InventoryStatsRequest request) {
         List<MechPart> inventory = createInventory(request.parts());
-        InventoryStats instance = switch (request.dataStructure()) {
-            case BSTREE -> createBSTreeInstance(inventory);
-            case HTABLE -> createHTableInstance(inventory);
-        };
+        DataStructure<MechPart> ds;
+        InventoryStats stats;
 
-        int totalParts = instance.calculateParts();
-        int totalInventory =instance.calculateInventory();
-        int partsLessThan = instance.calculateLessThan(request.lessThanThreshold());
+        switch (request.dataStructure()) {
+            case BSTREE -> {
+                BSTree<MechPart> tree = new BSTree<>();
+                inventory.forEach(tree::add);
+                ds = tree;
+                stats = new BSTreeStatsImpl(tree);
+            }
+            case HTABLE -> {
+                HTable<MechPart> table = new HTable<>(TABLE_SIZE);
+                inventory.forEach(table::add);
+                ds = table;
+                stats = new HTableStatsImpl(table);
+            }
+            default -> throw new IllegalArgumentException("Unsupported data structure");
+        }
 
         return new InventoryStatsResponse(
                 request.dataStructure(),
-                totalParts,
-                totalInventory,
-                partsLessThan,
-                instance.toString()
+                stats.calculateParts(),
+                stats.calculateInventory(),
+                stats.calculateLessThan(request.lessThanThreshold()),
+                ds.toString()
         );
     }
 
