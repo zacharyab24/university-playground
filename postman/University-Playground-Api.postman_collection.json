@@ -277,6 +277,92 @@
       ]
     },
     {
+      "name": "Data Structures",
+      "item": [
+        {
+          "name": "Calculate Inventory Statistics",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataStructure\": \"BSTREE\",\n  \"parts\": [\n    {\n      \"code\": \"AAA\",\n      \"quantity\": 50\n    },\n    {\n      \"code\": \"BBB\",\n      \"quantity\": 5\n    },\n    {\n      \"code\": \"CCC\",\n      \"quantity\": 100\n    }\n  ],\n  \"lessThanThreshold\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/inventory/stats",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "inventory",
+                "stats"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Benchmark Inventory",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dataStructure\": \"BSTREE\",\n  \"parts\": [\n    {\n      \"code\": \"AAA\",\n      \"quantity\": 50\n    },\n    {\n      \"code\": \"BBB\",\n      \"quantity\": 5\n    }\n  ],\n  \"iterations\": 100000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/inventory/benchmark",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "inventory",
+                "benchmark"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "EToll Report",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"booth1\": [\n    {\n      \"license\": \"ABC123\",\n      \"type\": \"Car\",\n      \"charge\": 3.5\n    },\n    {\n      \"license\": \"XYZ789\",\n      \"type\": \"Truck\",\n      \"charge\": 8\n    }\n  ],\n  \"booth2\": [\n    {\n      \"license\": \"DEF456\",\n      \"type\": \"Motorcycle\",\n      \"charge\": 1.5\n    },\n    {\n      \"license\": \"ABC123\",\n      \"type\": \"Car\",\n      \"charge\": 3.5\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{host}}/tolls/report",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "tolls",
+                "report"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Get OpenAPI Schema",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
