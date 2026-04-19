@@ -39,6 +39,7 @@
 * [x] Create Maven multi-module project (parent + EJB + WAR + EAR)
 * [x] Add dependencies to assignment modules via Nexus
 * [x] Configure OpenAPI / Swagger annotations
+* [x] Add OpenAPI spec endpoint at `GET /api/`
 
 ### Endpoints - Operating Systems (COMP2240)
 
@@ -46,25 +47,40 @@
 * [x] Concurrency - Semaphore simulation (`POST /api/multithreading/semaphore`)
 * [x] Concurrency - Monitor simulation (`POST /api/multithreading/monitor`)
 * [x] Concurrency - Wormhole simulation (`POST /api/multithreading/wormhole`)
-* [ ] Paging - page replacement algorithms (`POST /api/paging`)
-
-### Endpoints - Data Structures (SENG1120)
-
-* [ ] LinkedList endpoints
-* [ ] Stack endpoints
-* [ ] BSTree endpoints
+* [x] Paging - page replacement algorithms (`POST /api/paging`)
 
 ### Endpoints - Algorithms (COMP2230)
 
-* [ ] TSP / pathfinding endpoints
+* [x] TSP - Dynamic Programming and Hill Climbing (`POST /api/tsp`)
+* [x] Maze - Generate (`POST /api/maze/generate`)
+* [x] Maze - Solve with BFS and DFS (`POST /api/maze/solve`)
+* [x] Maze - Verify structure and solutions (`POST /api/maze/verify`)
 
-### Endpoints - Networking (SENG2250)
+### Endpoints - Data Structures (SENG1120)
 
-* [ ] Security / handshake endpoints
+* [x] Toll report - merge, deduplicate, count, income (`POST /api/tolls/report`)
+* [x] Inventory stats - BSTree and HTable (`POST /api/inventory/stats`)
+* [x] Inventory benchmark - add/remove cycles (`POST /api/inventory/benchmark`)
+
+### Endpoints - Network Security (SENG2250)
+
+* [x] RSA - key generation, encrypt, decrypt, sign, verify (`/api/crypto/rsa/*`)
+* [x] Diffie-Hellman - key generation, session key derivation (`/api/crypto/dh/*`)
+* [x] AES-CBC - key generation, encrypt, decrypt (`/api/crypto/cbc/*`)
+* [x] HMAC-SHA256 (`POST /api/crypto/hmac`)
 
 ---
 
-## Phase 4: Docker Deployment
+## Phase 4: Testing
+
+* [x] Add JUnit 5 + AssertJ for EJB unit tests
+* [x] Add RESTEasy embedded Undertow + RESTAssured for WAR integration tests
+* [x] Crypto end-to-end test (full handshake flow)
+* [x] CI via GitHub Actions
+
+---
+
+## Phase 5: Docker Deployment
 
 * [ ] Create Dockerfile (Wildfly base image)
 * [ ] Copy EAR into deployments directory
@@ -74,16 +90,17 @@
 
 ---
 
-## Phase 5: Frontend (Go + HTMX)
+## Phase 6: Frontend (Go + HTMX)
 
 * [ ] Create separate repository for Go frontend
 * [ ] Set up Go module with HTMX templating
 * [ ] Implement pages consuming the REST API
 * [ ] Add visualisations (scheduling, concurrency, paging)
+* [ ] Side-by-side crypto handshake demo
 
 ---
 
-## Phase 6: Validation
+## Phase 7: Validation
 
 * [ ] Test each endpoint manually
 * [ ] Validate error handling
@@ -95,4 +112,4 @@
 ## Stretch Goals
 
 * [ ] Add authentication layer
-* [ ] Add CI/CD pipelines
+* [ ] Add CI/CD pipelines for deployment
